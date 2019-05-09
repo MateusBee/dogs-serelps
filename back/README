@@ -1,0 +1,5 @@
+sequelize model:generate --name Author --attributes first_name:string,last_name:string
+sequelize db:create
+sequelize db:migrate
+sequelize db:migrate:undo //reverte
+sequelize db:migrate:undo --to <name>

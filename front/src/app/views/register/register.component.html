@@ -1,0 +1,168 @@
+<div class="app-body">
+  <main class="main d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 mx-auto">
+          <div class="card mx-4">
+            <div class="card-body p-4">
+              <form name="registerForm">
+              <div style="background-image: url(https://pbs.twimg.com/profile_images/948475422437773312/dEAVRB8G_400x400.jpg); float: right; width: 200px; height: 200px; border-radius: 12px"></div>
+            <h2>Dados Pessoais</h2>
+            <div class="form-group row">
+                <div class="col-md-6" style="margin-bottom: 2%"> 
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">Nome</span>
+                      </div>
+                      <input type="text" [(ngModel)]="user.nome"  name="nome" class="form-control" required>
+                    </div>
+                </div>
+                <div class="col-md-6" style="margin-bottom: 2%"> 
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">Nascimento</span>
+                      </div>
+                      <input type="date" [(ngModel)]="user.nascimento"  name="nascimento" class="form-control" required>
+                    </div>
+                </div>
+                <div class="col-md-6" style="margin-bottom: 2%"> 
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">CPF</span>
+                      </div>
+                      <input type="text" [(ngModel)]="user.cpf"  name="cpf" class="form-control" required>
+                    </div>
+                </div>
+                <div class="col-md-6" style="margin-bottom: 2%">
+                    <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Sexo</span>
+                    </div>
+                    <select class="form-control" placeholder="Sexo" [(ngModel)]="user.sexo"  name="sexo" required>
+                        <option value="" disabled selected>Selecione</option >
+                        <option value="male">Masculino</option>
+                        <option value="female">Feminino</option>
+                        <option value="other">Outro</option>
+                      </select>
+                  </div>
+                </div>
+                <div class="col-md-12" style="margin-bottom: 2%"> 
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Descrição</span>
+                    </div>
+                    <textarea type="text" minlength="250"  [(ngModel)]="user.desc"  name="desc" placeholder="Faça uma breve descrição de sua experiência com pets" class="form-control" required></textarea>
+                  </div>
+              </div>
+              </div>
+              &nbsp;
+                <h2>Endereço</h2>
+                  <div class="form-group row">
+                    <div class="col-md-6" style="margin-bottom: 2%"> 
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">Logradouro</span>
+                          </div>
+                          <input type="text" [(ngModel)]="endereco.logradouro" name="logradouro" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6" style="margin-bottom: 2%">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" >Bairro</span>
+                            </div>
+                            <input type="text" [(ngModel)]="endereco.bairro" name="bairro" class="form-control" required>
+                          </div>
+                    </div>
+                    <div class="col-md-6" style="margin-bottom: 2%">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">Cidade</span>
+                            </div>
+                            <input type="text" [(ngModel)]="endereco.cidade" name="cidade" class="form-control" required>
+                          </div>
+                    </div>
+                    <div class="col-md-6" style="margin-bottom: 2%">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">Estado</span>
+                            </div>
+                            <select id="uf" [(ngModel)]="endereco.estado" name="estado" class="form-control">
+                                <option value="AC">Acre</option>
+                                <option value="AL">Alagoas</option>
+                                <option value="AP">Amapá</option>
+                                <option value="AM">Amazonas</option>
+                                <option value="BA">Bahia</option>
+                                <option value="CE">Ceará</option>
+                                <option value="DF">Distrito Federal</option>
+                                <option value="ES">Espírito Santo</option>
+                                <option value="GO">Goiás</option>
+                                <option value="MA">Maranhão</option>
+                                <option value="MT">Mato Grosso</option>
+                                <option value="MS">Mato Grosso do Sul</option>
+                                <option value="MG">Minas Gerais</option>
+                                <option value="PA">Pará</option>
+                                <option value="PB">Paraíba</option>
+                                <option value="PR">Paraná</option>
+                                <option value="PE">Pernambuco</option>
+                                <option value="PI">Piauí</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="RN">Rio Grande do Norte</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                                <option value="RO">Rondônia</option>
+                                <option value="RR">Roraima</option>
+                                <option value="SC">Santa Catarina</option>
+                                <option value="SP">São Paulo</option>
+                                <option value="SE">Sergipe</option>
+                                <option value="TO">Tocantins</option>
+                            </select>
+                          </div>
+                    </div>
+                    <div class="col-md-6" style="margin-bottom: 2%">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">Complemento</span>
+                            </div>
+                            <input type="text" [(ngModel)]="endereco.complemento" name="complemento" class="form-control" required>
+                          </div>
+                    </div>
+                    <div class="col-md-6" style="margin-bottom: 2%">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">CEP</span>
+                            </div>
+                            <input type="text" [(ngModel)]="endereco.cep" name="cep" class="form-control" required>
+                          </div>
+                    </div>
+                  </div>
+                  <h2>Conta</h2>
+                  <div class="form-group row">
+                      <div class="col-md-12" style="margin-bottom: 2%"> 
+                          <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text">Email</span>
+                              </div>
+                              <input type="email" [(ngModel)]="user.email"  name="email" class="form-control" required>
+                            </div>
+                      </div>
+                      <div class="col-md-12" style="margin-bottom: 2%">
+                          <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text">Senha</span>
+                              </div>
+                              <input type="password" id="senha" [(ngModel)]="user.senha" name="senha" class="form-control" required>
+                            </div>
+                      </div>
+                    </div>
+                    <div class="footer" style="float:right">
+                      <a href="/#/login" class="btn btn-secondary btn-lg" >Faça Login</a>
+                      <button type="button" class="btn btn-lg btn-primary" (click)="createUser()" >Registrar</button>
+                    </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

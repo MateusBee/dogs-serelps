@@ -1,0 +1,111 @@
+<div class="card mx-4">
+    <div class="card-body p-4">
+        <div class="input-group" style="left: 67%;">
+            <div class="btn-group" dropdown >
+                <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle" style="border-radius: 2%;">
+                  <span id="out">Serviços Contratados</span>
+                  <span class="caret"></span>
+                </button> 
+                <ul *dropdownMenu class="dropdown-menu" role="menu">
+                  <li role="menuitem"><button class="dropdown-item"(click)="changeTypeService();" ><span id="inside">Serviços Oferecidos</span></button></li>
+                </ul>
+              </div>
+            <input type="text" class="form-control col-md-2" [(ngModel)]="filtro" (change)="filtrar()">
+            <div class="input-group-prepend">
+                <span class="input-group-text form-control">
+                  <i class="fa fa-search fa-lg"></i>
+                </span>
+            </div>
+        </div>
+        <div id="contratar" class="show">
+          <div class="card-body p-4">
+            <div style="margin-top: 1%">
+                <hr>
+              <img src="https://pbs.twimg.com/profile_images/948475422437773312/dEAVRB8G_400x400.jpg"  style="image-resolution:100%;  float: left; width: 200px; height: 200px; border-radius: 12px">
+              
+              <div class="form-group row" style="margin-left: 15%">
+                <h5 for="tipo" style="margin-left:2%">Tipo de Serviço:</h5>
+                <div class="col-md-4">
+                  <label style="margin-left:2%" name="tipo" >Passeio</label>
+                </div>
+                <h5 for="data">Data: </h5>
+                <div class="col-md-2">
+                  <label name="data" >17/12/2017</label>
+                </div>
+                <h5 for="hora" >Hora: </h5>
+                <div class="col-md-2">
+                  <label name="hora" >13:15</label>
+                </div>
+                <div>
+                  <button class="btn btn-primary"> Avaliar</button>
+                </div>
+              </div>
+              <div class="form-group row" style="margin-left: 15%; margin-top: -1%">
+                <h5 style="margin-left:2%" for="local" >Solicitante: </h5>
+                <div class="col-md-4">
+                  <label name="local" >Felix</label>
+                </div>
+                <h5 style="margin-left:3.5%" for="local">Pet: </h5>
+                <div class="col-md-4">
+                  <label name="local" >Jack (cachorro)</label>
+                </div>
+              </div>
+              <div class="form-group row" style="margin-left: 15%; margin-top: -1%">
+                <h5 style="margin-left:2%" for="local" >Local: </h5>
+                <div class="col-md-8">
+                  <label name="local" >Castro Alves, São Cristovão - 89803108 - 464-E</label>
+                </div>
+              </div>
+              <div class="form-group " style="margin-left: 15%; margin-top: -1%">
+                <h5 style="margin-left:2%" for="local" >Descrição do Serviço</h5>
+                <div style="margin-left:2%; text-align: justify" >
+                  <label name="local" >Preciso de alguém para levar meu cachorro e gato no pet shop para banho e tosa e em seguida dar um passeio no parquinho com eles</label>
+              </div>
+              </div>
+            </div>
+          </div>
+       </div>
+       <div id="oferecer" class="hide" style="display:none">
+         <div class="card-body p-4">
+          <div style="margin-top: 1%">
+            <hr>
+            <img src="https://pbs.twimg.com/profile_images/948475422437773312/dEAVRB8G_400x400.jpg"  style="image-resolution:100%;  float: left; width: 200px; height: 200px; border-radius: 12px">
+            <div class="form-group row" style="margin-left: 15%">
+              <h5 for="tipo" style="margin-left:2%">Tipo de Serviço:</h5>
+              <div class="col-md-4">
+                <label style="margin-left:2%" name="tipo" >Banho e Tosa</label>
+              </div>
+              <h5 for="data">Data: </h5>
+              <div class="col-md-2">
+                <label name="data" >17/12/2017</label>
+              </div>
+              <h5 for="hora" >Hora: </h5>
+              <div class="col-md-2">
+                <label name="hora" >13:15</label>
+              </div>
+            </div>
+            <div class="form-group row" style="margin-left: 15%; margin-top: -1%">
+              <h5 style="margin-left:2%" for="local" >Solicitante: </h5>
+              <div class="col-md-4">
+                <label name="local" >Noturno</label>
+              </div>
+              <h5 style="margin-left:3.5%" for="local">Pet: </h5>
+              <div class="col-md-4">
+                <label name="local" >Jack (cachorro)</label>
+              </div>
+            </div>
+            <div class="form-group row" style="margin-left: 15%; margin-top: -1%">
+              <h5 style="margin-left:2%" for="local" >Local: </h5>
+              <div class="col-md-8">
+                <label name="local" >Castro Alves, São Cristovão - 89803108 - 464-E</label>
+              </div>
+            </div>
+            <div class="form-group " style="margin-left: 15%; margin-top: -1%">
+              <h5 style="margin-left:2%" for="local" >Descrição do Serviço</h5>
+              <div style="margin-left:2%; text-align: justify" >
+                <label name="local" >Preciso de alguém para levar meu cachorro e gato no pet shop para banho e tosa e em seguida dar um passeio no parquinho com eles</label>
+            </div>
+        </div>
+      </div> 
+    </div>
+</div>

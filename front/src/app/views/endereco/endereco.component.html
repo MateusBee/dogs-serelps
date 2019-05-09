@@ -1,0 +1,279 @@
+<div class="card mx-4">
+  <div class="card-body p-4">
+    <div id="oferecer">
+      <div class="card-body p-4">
+        <h3>Endereços</h3>
+        <div class="row"> 
+         <button class="btn btn-md btn-primary " title="Criar novo um Serviço" style="margin: 0%; margin-left: 95%;" data-toggle="modal" (click)="enderecoModal.show()"> <i class="fa fa-plus" style="color: white"></i></button>
+        </div>
+       <div style="margin-top: 1%"  *ngFor="let end of user.Enderecos">
+         <hr>
+         <div class="form-group row" style="margin-left: 95%;">
+          <button class="btn btn-md" (click)="editEnderecoModal(end)" ><i style="color:green" class="fa fa-pencil"></i></button>
+          <button class="btn btn-md" (click)="deleteEndereco(end)"> <i style="color: red" class="fa fa-trash"></i></button>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="street">Logradouro</label>
+            <input type="text" class="form-control" id="street" value={{end.logradouro}} disabled>
+          </div>
+          <div class="form-group  col-md-6">
+              <label for="street">Bairro</label>
+              <input type="text" class="form-control" id="street"  value={{end.bairro}} disabled>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-6">
+                <label for="city">Cidade</label>
+                <input type="text" class="form-control" id="city"  value={{end.cidade}} disabled>
+              </div>
+              <div class="form-group col-sm-6">
+                  <label for="postal-code">Estado</label>
+                  <select id="uf" name="estado" class="form-control" value={{end.estado}} disabled>
+                      <option value="AC">Acre</option>
+                      <option value="AL">Alagoas</option>
+                      <option value="AP">Amapá</option>
+                      <option value="AM">Amazonas</option>
+                      <option value="BA">Bahia</option>
+                      <option value="CE">Ceará</option>
+                      <option value="DF">Distrito Federal</option>
+                      <option value="ES">Espírito Santo</option>
+                      <option value="GO">Goiás</option>
+                      <option value="MA">Maranhão</option>
+                      <option value="MT">Mato Grosso</option>
+                      <option value="MS">Mato Grosso do Sul</option>
+                      <option value="MG">Minas Gerais</option>
+                      <option value="PA">Pará</option>
+                      <option value="PB">Paraíba</option>
+                      <option value="PR">Paraná</option>
+                      <option value="PE">Pernambuco</option>
+                      <option value="PI">Piauí</option>
+                      <option value="RJ">Rio de Janeiro</option>
+                      <option value="RN">Rio Grande do Norte</option>
+                      <option value="RS">Rio Grande do Sul</option>
+                      <option value="RO">Rondônia</option>
+                      <option value="RR">Roraima</option>
+                      <option value="SC">Santa Catarina</option>
+                      <option value="SP">São Paulo</option>
+                      <option value="SE">Sergipe</option>
+                      <option value="TO">Tocantins</option>
+                  </select>
+                </div>
+          </div>
+        <div class="row">
+          <div class="form-group col-sm-6">
+            <label for="city">Complemento</label>
+            <input type="text" class="form-control" id="city"  value={{end.complemento}} disabled>
+          </div>
+          <div class="form-group col-sm-6">
+            <label for="postal-code">Cep</label>
+            <input type="text" class="form-control" id="postal-code" value={{end.cep}} disabled>
+          </div>
+        </div>
+      </div>
+   </div>
+ </div>
+  </div>
+</div>
+
+<!-- ---------------------------------------------------- Modal  -------------------------------------------------  -->
+
+<div bsModal #enderecoModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Novo Endereço</h4>
+          <button type="button" class="close" (click)="enderecoModal.hide()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body align-items-center">
+          <form>
+              <div class="form-group row">
+                  <div class="col-md-6" style="margin-bottom: 2%"> 
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Logradouro</span>
+                        </div>
+                        <input type="text" [(ngModel)]="endereco.logradouro" name="logradouro" class="form-control" required>
+                      </div>
+                  </div>
+                  <div class="col-md-6" style="margin-bottom: 2%">
+                      <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" >Bairro</span>
+                          </div>
+                          <input type="text" [(ngModel)]="endereco.bairro" name="bairro" class="form-control" required>
+                        </div>
+                  </div>
+                  <div class="col-md-6" style="margin-bottom: 2%">
+                      <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">Cidade</span>
+                          </div>
+                          <input type="text" [(ngModel)]="endereco.cidade" name="cidade" class="form-control" required>
+                        </div>
+                  </div>
+                  <div class="col-md-6" style="margin-bottom: 2%">
+                      <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">Estado</span>
+                          </div>
+                          <select [(ngModel)]="endereco.estado" name="estado" class="form-control">
+                              <option value="AC">Acre</option>
+                              <option value="AL">Alagoas</option>
+                              <option value="AP">Amapá</option>
+                              <option value="AM">Amazonas</option>
+                              <option value="BA">Bahia</option>
+                              <option value="CE">Ceará</option>
+                              <option value="DF">Distrito Federal</option>
+                              <option value="ES">Espírito Santo</option>
+                              <option value="GO">Goiás</option>
+                              <option value="MA">Maranhão</option>
+                              <option value="MT">Mato Grosso</option>
+                              <option value="MS">Mato Grosso do Sul</option>
+                              <option value="MG">Minas Gerais</option>
+                              <option value="PA">Pará</option>
+                              <option value="PB">Paraíba</option>
+                              <option value="PR">Paraná</option>
+                              <option value="PE">Pernambuco</option>
+                              <option value="PI">Piauí</option>
+                              <option value="RJ">Rio de Janeiro</option>
+                              <option value="RN">Rio Grande do Norte</option>
+                              <option value="RS">Rio Grande do Sul</option>
+                              <option value="RO">Rondônia</option>
+                              <option value="RR">Roraima</option>
+                              <option value="SC">Santa Catarina</option>
+                              <option value="SP">São Paulo</option>
+                              <option value="SE">Sergipe</option>
+                              <option value="TO">Tocantins</option>
+                          </select>
+                        </div>
+                  </div>
+                  <div class="col-md-6" style="margin-bottom: 2%">
+                      <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">Complemento</span>
+                          </div>
+                          <input type="text" [(ngModel)]="endereco.complemento" name="complemento" class="form-control" required>
+                        </div>
+                  </div>
+                  <div class="col-md-6" style="margin-bottom: 2%">
+                      <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">CEP</span>
+                          </div>
+                          <input type="text" [(ngModel)]="endereco.cep" name="cep" class="form-control" required>
+                        </div>
+                  </div>
+                </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="enderecoModal.hide()">Fechar</button>
+          <button type="button" class="btn btn-primary" (click)="createEndereco(); enderecoModal.hide(); clean()" >Salvar</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+
+
+  <div bsModal #editModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Editar Endereço</h4>
+            <button type="button" class="close" (click)="editModal.hide()" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body align-items-center">
+            <form>
+                <div class="form-group row">
+                    <div class="col-md-6" style="margin-bottom: 2%"> 
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">Logradouro</span>
+                          </div>
+                          <input type="text" [(ngModel)]="endereco.logradouro" name="logradouro" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6" style="margin-bottom: 2%">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" >Bairro</span>
+                            </div>
+                            <input type="text" [(ngModel)]="endereco.bairro" name="bairro" class="form-control" required>
+                          </div>
+                    </div>
+                    <div class="col-md-6" style="margin-bottom: 2%">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">Cidade</span>
+                            </div>
+                            <input type="text" [(ngModel)]="endereco.cidade" name="cidade" class="form-control" required>
+                          </div>
+                    </div>
+                    <div class="col-md-6" style="margin-bottom: 2%">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">Estado</span>
+                            </div>
+                            <select [(ngModel)]="endereco.estado" name="estado" class="form-control">
+                                <option value="AC">Acre</option>
+                                <option value="AL">Alagoas</option>
+                                <option value="AP">Amapá</option>
+                                <option value="AM">Amazonas</option>
+                                <option value="BA">Bahia</option>
+                                <option value="CE">Ceará</option>
+                                <option value="DF">Distrito Federal</option>
+                                <option value="ES">Espírito Santo</option>
+                                <option value="GO">Goiás</option>
+                                <option value="MA">Maranhão</option>
+                                <option value="MT">Mato Grosso</option>
+                                <option value="MS">Mato Grosso do Sul</option>
+                                <option value="MG">Minas Gerais</option>
+                                <option value="PA">Pará</option>
+                                <option value="PB">Paraíba</option>
+                                <option value="PR">Paraná</option>
+                                <option value="PE">Pernambuco</option>
+                                <option value="PI">Piauí</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="RN">Rio Grande do Norte</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                                <option value="RO">Rondônia</option>
+                                <option value="RR">Roraima</option>
+                                <option value="SC">Santa Catarina</option>
+                                <option value="SP">São Paulo</option>
+                                <option value="SE">Sergipe</option>
+                                <option value="TO">Tocantins</option>
+                            </select>
+                          </div>
+                    </div>
+                    <div class="col-md-6" style="margin-bottom: 2%">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">Complemento</span>
+                            </div>
+                            <input type="text" [(ngModel)]="endereco.complemento" name="complemento" class="form-control" required>
+                          </div>
+                    </div>
+                    <div class="col-md-6" style="margin-bottom: 2%">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">CEP</span>
+                            </div>
+                            <input type="text" [(ngModel)]="endereco.cep" name="cep" class="form-control" required>
+                          </div>
+                    </div>
+                  </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="editModal.hide()">Fechar</button>
+            <button type="button" class="btn btn-primary" (click)="editEndereco()" >Salvar</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->

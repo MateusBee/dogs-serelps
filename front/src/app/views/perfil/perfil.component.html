@@ -1,0 +1,89 @@
+<div class="app-body">
+  <main class=" ">
+    <div class="">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card mx-4">
+            <div class="card-body p-4">
+              <form name="registerForm">
+              <div style="background-image: url(https://pbs.twimg.com/profile_images/948475422437773312/dEAVRB8G_400x400.jpg); float: right; width: 200px; height: 200px; border-radius: 12px"></div>
+            <h2>Dados Pessoais</h2>
+            <div class="form-group row">
+                <div class="col-md-6" style="margin-bottom: 2%"> 
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">Nome</span>
+                      </div>
+                      <input type="text" [(ngModel)]="user.nome"  name="nome" class="form-control" required>
+                    </div>
+                </div>
+                <div class="col-md-6" style="margin-bottom: 2%"> 
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">Nascimento</span>
+                      </div>
+                      <input type="date" [(ngModel)]="user.datanasc"  name="datanasc" class="form-control" required>
+                    </div>
+                </div>
+                <div class="col-md-6" style="margin-bottom: 2%"> 
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">CPF</span>
+                      </div>
+                      <input type="text" [(ngModel)]="user.cpf"  name="cpf" class="form-control" required>
+                    </div>
+                </div>
+                <div class="col-md-6" style="margin-bottom: 2%">
+                    <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Sexo</span>
+                    </div>
+                    <select class="form-control" placeholder="Sexo" [(ngModel)]="user.sexo"  name="sexo" required>
+                        <option value="" disabled selected>Selecione</option >
+                        <option value="male">Masculino</option>
+                        <option value="female">Feminino</option>
+                        <option value="other">Outro</option>
+                      </select>
+                  </div>
+                </div>
+                <div class="col-md-12" style="margin-bottom: 2%"> 
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Características</span>
+                    </div>
+                    <textarea type="text" minlength="250"  [(ngModel)]="user.caracteristicas"  name="caracteristicas" placeholder="Faça uma breve descrição de sua experiência com pets" class="form-control" required></textarea>
+                  </div>
+              </div>
+              </div>
+              &nbsp;
+                  <h2>Conta</h2>
+                  <div class="form-group row">
+                      <div class="col-md-12" style="margin-bottom: 2%"> 
+                          <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text">Email</span>
+                              </div>
+                              <input type="email" [(ngModel)]="user.email"  name="email" class="form-control" required>
+                            </div>
+                      </div>
+                      <div class="col-md-12" style="margin-bottom: 2%">
+                          <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text">Senha</span>
+                              </div>
+                              <input type="password" id="senha" [(ngModel)]="user.senha" name="senha" class="form-control" required>
+                            </div>
+                      </div>
+                    </div>
+                    <div class="footer" style="float:right">
+                      <a href="/#/home" class="btn btn-secondary btn-lg" >Cancelar</a>
+                      <button type="button" class="btn btn-lg btn-primary" (click)="updateUser()" >Salvar</button>
+                    </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
